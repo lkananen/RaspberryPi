@@ -16,3 +16,9 @@ killall pulseaudio
 #
 # Install Bluetooth GUI pairing tool:
 apt-get install blueman
+#
+#
+# Toubleshooting:
+# You can try adding following line to /etc/defaults/raspotify:
+# OPTIONS="--device hw:0"
+# Source: http://www.hagensieker.com/blog/page/?post_id=86&title=no-no-no-that-is-not-it-raspotify-on-raspberry-pi-with-hifiberryamp
