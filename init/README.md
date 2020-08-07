@@ -1,10 +1,13 @@
 # Initialization scripts
-Running the scripts in this folder sets up my Raspian setup.  
+Running the scripts in this folder sets up my Raspbian setup.  
 To run everything you just need to run command:  
 ```./init.sh```  
 and everything will be set up for your fresh installation of Raspian.
 
-## Files
+## Requirements
+- Raspberry Pi OS >= Release: June 2019
+
+## Directory structure
 ```
  root
  ├── sys
@@ -25,3 +28,7 @@ The plan is to attach all the sripts to the `init.sh` for easy setup. Current st
 - [x] ~~system scripts~~
 - [ ] UI setup
 - [ ] web server setup
+
+# FAQ
+## Permission errors
+In case of inadequate permissions, run `chmod +x <filename>` for the neccessary filenames to add execute permissions.
