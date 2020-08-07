@@ -4,3 +4,4 @@
 #
 ./filesystem_upgrade.sh
 ./basic_apps.sh
+./cleanup.sh
