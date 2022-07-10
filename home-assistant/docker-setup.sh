@@ -1,8 +1,10 @@
 #!/bin/bash
-
+#
+# Install Docker and Docker-compose
+#
 # More details at:
 # https://www.jfrog.com/connect/post/install-docker-compose-on-raspberry-pi/
-
+#
 ###############################################################################
 # Pre-settings
 
