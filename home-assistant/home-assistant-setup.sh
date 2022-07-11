@@ -20,3 +20,9 @@ docker run -d \
   --network=host \
   ghcr.io/home-assistant/home-assistant:stable
   
+
+###############################################################################
+# Restarting
+
+docker restart homeassistant
+#docker-compose restart
