@@ -8,9 +8,10 @@
 ###############################################################################
 # Pre-settings
 
+# (optional)
 # Assign a .local domain to host on your network.
 # Enables you to access your Pi using a web address instead of IP.
-sudo apt-get install avahi-daemon
+#sudo apt-get install avahi-daemon
 
 ###############################################################################
 # Docker
