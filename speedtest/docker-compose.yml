@@ -1,8 +1,8 @@
-version: "3"
+version: "3.3"
 services:
   grafana:
     image: grafana/grafana:7.5.2
-    restart: always
+    restart: unless-stopped
     ports:
       - 3000:3000
     volumes:
@@ -11,7 +11,9 @@ services:
       - influxdb
 
   influxdb:
+    container_name: influxdb
     image: influxdb:1.8.3
+    restart: unless-stopped
     volumes:
       - influxdb:/var/lib/influxdb
     ports:
@@ -23,7 +25,9 @@ services:
       - INFLUXDB_DB="speedtest"
 
   speedtest:
-    image: robinmanuelthiel/speedtest:latest
+    container_name: speedtest
+    image: robinmanuelthiel/speedtest:0.3.0
+    restart: unless-stopped
     environment:
       - LOOP=true
       - LOOP_DELAY=1800
