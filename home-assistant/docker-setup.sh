@@ -35,7 +35,7 @@ groups ${USER}
 sudo apt-get install libffi-dev libssl-dev -y
 sudo apt install python3-dev -y
 sudo apt-get install -y python3 python3-pip -y
-‍sudo pip3 install docker-compose -y
+‍pip install docker-compose
 
 # Set Docker to start on boot
 ‍sudo systemctl to enable Docker
