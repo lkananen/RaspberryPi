@@ -39,4 +39,4 @@ sudo apt-get install -y python3 python3-pip -y
 ‍pip install docker-compose
 
 # Set Docker to start on boot
-‍sudo systemctl to enable Docker
+‍sudo systemctl enable docker
