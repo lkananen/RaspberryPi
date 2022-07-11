@@ -13,3 +13,10 @@ https://github.com/robinmanuelthiel/speedtest/
     a) "Configuration" >> "Data Sources" >> "Add".   
     b) InfluxDB uses URL `http://influxdb:8086` by default.   
     c) Default database is `speedtest`.   
+
+
+## TODO & Tasks
+- [x] Setup stack.
+- [ ] Confirm InfluxDB receives data.
+- [x] Connect Grafana to InfluxDB.
+- [ ] Build Grafana display of the data.
