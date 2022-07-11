@@ -15,7 +15,7 @@ docker run -d \
   --name homeassistant \
   --privileged \
   --restart=unless-stopped \
-  -e TZ=FI \
+  -e TZ=Europe/Helsinki \
   -v /home/pi/ha:/config \
   --network=host \
   ghcr.io/home-assistant/home-assistant:stable
