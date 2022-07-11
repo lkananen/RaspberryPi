@@ -33,6 +33,7 @@ groups ${USER}
 # Docker-compose
 
 sudo apt-get install libffi-dev libssl-dev -y
+sudo apt-get install libseccomp -y
 sudo apt install python3-dev -y
 sudo apt-get install -y python3 python3-pip -y
 ‍pip install docker-compose
