@@ -1,0 +1,14 @@
+{
+  "name": "z-wave-server",
+  "version": "1.0.0",
+  "description": "Z-wave hosting home server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lauri Kananen",
+  "license": "ISC",
+  "dependencies": {
+    "zwave-js": "^9.6.0"
+  }
+}
