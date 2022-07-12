@@ -9,7 +9,8 @@
 ###############################################################################
 # Home assistant container setup
 
-mkdir /home/pi/ha
+mkdir ~/ha
+mkdir ~/ha-cache
 
 docker-compose \
   -f docker-compose.yml \
