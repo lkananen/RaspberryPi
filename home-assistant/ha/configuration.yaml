@@ -1,0 +1,27 @@
+# Home assistant general configurations
+homeassistant:
+  name: !secret home_name
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  unit_system: metric
+  currency: !secret currency
+  time_zone: !secret time_zone
+  internal_url: !secret internal_url
+  #external_url: "https://www.example.com"
+
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+# My sensors
+sensor: !include sensors.yaml
+
