@@ -17,3 +17,5 @@ docker-compose \
   --project-name homeassistant \
   up -d
 
+# Copies configs to the home assistant mounted path
+#cp ./ha ~/ha
