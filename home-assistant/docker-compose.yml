@@ -12,9 +12,10 @@ services:
       S0_LEGACY_KEY: ${S0_LEGACY_KEY}
       LOGTOFILE: "true"
       LOGLEVEL: "error"
-      LOGFILENAME: "/cache/logs/zwave_%DATE%.log"
+      LOGFILENAME: "/logs/zwave_%DATE%.log"
     volumes:
       - ${HOME}/ha-cache:/cache
+      - ${HOME}/ha-cache/logs:/logs
     devices:
       - '/dev/ttyACM0:/dev/zwave'
     ports:
