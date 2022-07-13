@@ -9,8 +9,19 @@
 ###############################################################################
 # Home assistant container setup
 
-mkdir ~/ha
-mkdir ~/ha-cache
+# First time setup volume mount targets 
+if [ -d "~/ha" ]
+then
+  :
+else
+  mkdir ~/ha
+fi
+if [ -d "~/ha-cache" ]
+then
+  :
+else
+  mkdir ~/ha-cache
+fi
 
 docker-compose \
   -f docker-compose.yml \
