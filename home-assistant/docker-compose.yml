@@ -19,7 +19,6 @@ services:
     devices:
       - '/dev/serial/by-id/${ZSTICK_SERIAL_ID}:/dev/zwave'
     ports:
-      - '8091:8091'     # Web interface
       - '3000:3000'     # zwave-js websocket server
 
   homeassistant:
