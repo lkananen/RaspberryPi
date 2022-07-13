@@ -36,3 +36,12 @@ scene: !include scenes.yaml
 
 # My sensors
 sensor: !include sensors.yaml
+
+# Z-wave server reload
+rest_command:
+  reload_zwavejs:
+    url: !secret reload_zwave_url
+    method: POST
+    headers:
+      authorization: !secret reload_zwave_token
+      content-type: application/json
