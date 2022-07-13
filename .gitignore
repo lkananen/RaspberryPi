@@ -1,0 +1,4 @@
+# Secrets
+
+home-assistant/.env
+home-assistant/ha/secrets.yaml
