@@ -1,29 +1,10 @@
 version: '3'
 services:
-  homeassistant:
-    container_name: homeassistant
-    image: home-assistant/home-assistant:${HA_IMAGE_VERSION}
-    restart: unless-stopped
-    privileged: true
-    volumes:
-      - ${HOME}/ha:/config
-      - /etc/localtime:/etc/localtime:ro
-    network_mode: host
-    devices:
-      - /dev/ttyACM0:/dev/ttyACM0
-    depends_on:
-      - "zjs"
-    healthcheck:
-      test: ["CMD", "curl", "-s", "http://127.0.0.1:8123"]
-      interval: 2m30s
-      timeout: 30s
-      retries: 5
-      start_period: 1m30s
-
   zjs:
     container_name: zjs
     image: kpine/zwave-js-server:${ZWAVE_SERVER_IMAGE_VERSION}
     restart: unless-stopped
+    stop_signal: SIGINT
     environment:
       S2_ACCESS_CONTROL_KEY: ${S2_ACCESS_CONTROL_KEY}
       S2_AUTHENTICATED_KEY: ${S2_AUTHENTICATED_KEY}
@@ -34,4 +15,23 @@ services:
     devices:
       - '/dev/ttyACM0:/dev/zwave'
     ports:
-      - '3000:3000'
+      - '8091:8091'     # Web interface
+      - '3000:3000'     # zwave-js websocket server
+
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:${HA_IMAGE_VERSION}
+    restart: unless-stopped
+    privileged: true
+    volumes:
+      - ${HOME}/ha:/config
+      - /etc/localtime:/etc/localtime:ro
+    network_mode: host
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+    healthcheck:
+      test: ["CMD", "curl", "-s", "http://127.0.0.1:8123"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
