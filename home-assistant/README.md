@@ -9,7 +9,6 @@ This folder contains a containerized home assistant setup to host on a Raspberry
     a) Run the steps in `home-assistant-docker-setup.sh`.   
     b) Run the steps in `home-assistant-docker-compose-setup.sh`.
 
-<<<<<<< HEAD
 ## Files
 - [ha/](./ha/) Home assistant configurations. Mounted as a volume by the home assistant container.
   - [configuration.yaml](./ha/configuration.yaml) Home assistant main configurations.
@@ -21,7 +20,6 @@ This folder contains a containerized home assistant setup to host on a Raspberry
 - [home-assistant-docker-compose-setup.sh](./home-assistant-docker-compose-setup.sh) (recommended setup) Home assistant docker-compose container setup and deployment script.
 - [home-assistant-docker-setup.sh](./home-assistant-docker-setup.sh) (optional setup) Home assistant Docker container setup and deployment script.
 - [README.md](./README.md) This readme file.
-=======
 
 ## Debugging
 
@@ -30,4 +28,3 @@ This folder contains a containerized home assistant setup to host on a Raspberry
   
 - Containers can be connected with:   
   `docker exec -it <CONTAINER_ID> /bin/bash`
->>>>>>> 0a27ad7 (Debug section created in readme.)
