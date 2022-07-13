@@ -15,6 +15,7 @@ mkdir ~/ha-cache
 docker-compose \
   -f docker-compose.yml \
   --project-name homeassistant \
+  --env-file .env \
   up -d
 
 # Copies configs to the home assistant mounted path

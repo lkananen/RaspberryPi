@@ -16,8 +16,11 @@ services:
     container_name: zjs
     image: kpine/zwave-js-server:1.20.0-9.6.0@sha256:ed2089ecd266fa6c631212399bebb3da29649c5c0eaf67b0409b801e99c62352
     restart: unless-stopped
-    env_file:
-      - .env
+    labels:
+      S2_ACCESS_CONTROL_KEY: ${S2_ACCESS_CONTROL_KEY}
+      S2_AUTHENTICATED_KEY: ${S2_AUTHENTICATED_KEY}
+      S2_UNAUTHENTICATED_KEY: ${S2_UNAUTHENTICATED_KEY}
+      S0_LEGACY_KEY: ${S0_LEGACY_KEY}
     devices:
       - '/dev/ttyACM0:/dev/zwave'
     volumes:
