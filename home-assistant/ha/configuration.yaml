@@ -16,33 +16,10 @@ homeassistant:
   #external_url: "https://www.example.com"
   customize: !include customize.yaml
 
+  # Default configurations
+  # Do not remove!
+  default_config:
 
-##############################################################################
-# Default configs
-
-# Loads default set of integrations. Do not remove.
-default_config:
-
-# Text to speech
-tts:
-  - platform: google_translate
-
-automation: !include automations.yaml
-script: !include scripts.yaml
-scene: !include scenes.yaml
-
-
-##############################################################################
-# Customized parts
-
-# My sensors
-sensor: !include sensor.yaml
-
-# Z-wave server reload
-rest_command:
-  reload_zwavejs:
-    url: !secret reload_zwave_url
-    method: POST
-    headers:
-      authorization: !secret reload_zwave_token
-      content-type: application/json
+  # Text to speech
+  tts:
+    - platform: google_translate
