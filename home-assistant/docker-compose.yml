@@ -2,7 +2,7 @@ version: '3'
 services:
   homeassistant:
     container_name: homeassistant
-    image: "ghcr.io/home-assistant/home-assistant:2022.7.3"
+    image: "home-assistant/home-assistant:2022.7.3@sha256:cdd625f5b9edd3d5413705357405373b065dd4925ba316f8d0bc68d73fae6463"
     volumes:
       - ${HOME}/ha:/config
       - /etc/localtime:/etc/localtime:ro
@@ -14,7 +14,7 @@ services:
 
   zjs:
     container_name: zjs
-    image: kpine/zwave-js-server:1.20.0-9.6.0
+    image: kpine/zwave-js-server:1.20.0-9.6.0@sha256:ed2089ecd266fa6c631212399bebb3da29649c5c0eaf67b0409b801e99c62352
     restart: unless-stopped
     environment:
       S2_ACCESS_CONTROL_KEY: "7764841BC794A54442E324682A550CEF"
