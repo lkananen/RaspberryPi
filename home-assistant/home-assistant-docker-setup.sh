@@ -9,7 +9,13 @@
 ###############################################################################
 # Home assistant container setup
 
-mkdir ~/ha
+# First time setup volume mount target
+if [ -d "~/ha" ]
+then
+  :
+else
+  mkdir ~/ha
+fi
 
 docker run -d \
   --name homeassistant \
@@ -46,7 +52,13 @@ echo "dtoverlay=disable-bt" | tee -a /boot/config.txt
 # Note!!! Reboot required!
 #reboot
 
-mkdir ~/ha-cache
+# First time setup volume mount target
+if [ -d "~/ha-cache" ]
+then
+  :
+else
+  mkdir ~/ha-cache
+fi
 
 docker run -d \
     -p 3000:3000 \

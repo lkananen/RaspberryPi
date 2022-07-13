@@ -5,15 +5,22 @@ This folder contains a containerized home assistant setup to host on a Raspberry
 
 ## Setup
 1. Setup Docker by running `docker-setup.sh`.
-2. Setup Home Assistant container. Either of the options:   
+
+2. Set secrets to `.env` and `ha/secrets.yaml`.   
+    a) Long lived access token to home assistant can be generated under home assistant profiles.   
+    b) Network keys must be 16-byte hexadecimal strings. (E.g. Hexadecimal 0xF1 0xA6 is entered as "F1A6".) A simple way to generate random keys is by running the following command:   
+        `tr -dc A-F0-9 < /dev/urandom | head -c 32 ; echo`
+        
+3. Setup Home Assistant container. Either of the options:   
     a) Run the steps in `home-assistant-docker-setup.sh`.   
     b) Run the steps in `home-assistant-docker-compose-setup.sh`.
 
+
 ## Files
 - [ha/](./ha/) Home assistant configurations. Mounted as a volume by the home assistant container.
-  - [configuration.yaml](./ha/configuration.yaml) Home assistant main configurations.
-  - [secrets.yaml](./ha/secrets.yaml) Home assistant configuration secrets, tokens, passwords and other confidental settings.
-  - [sensors.yaml](./ha/sensors.yaml) Home assistant sensor configurations.
+    - [configuration.yaml](./ha/configuration.yaml) Home assistant main configurations.
+    - [secrets.yaml](./ha/secrets.yaml) Home assistant configuration secrets, tokens, passwords and other confidental settings.
+    - [sensors.yaml](./ha/sensors.yaml) Home assistant sensor configurations.
 - [.env](./.env) Dotenv file of Docker environment configuration secrets.
 - [docker-compose.yml](./docker-compose.yml) Home assistant container setup.
 - [docker-setup.sh](./docker-setup.sh) Docker installation script. Required for the use of Docker and related scripts.

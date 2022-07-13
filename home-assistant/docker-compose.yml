@@ -17,7 +17,7 @@ services:
       - ${HOME}/ha-cache:/cache
       - ${HOME}/ha-cache/logs:/logs
     devices:
-      - '/dev/ttyACM0:/dev/zwave'
+      - '/dev/serial/by-id/${ZSTICK_SERIAL_ID}:/dev/zwave'
     ports:
       - '8091:8091'     # Web interface
       - '3000:3000'     # zwave-js websocket server
@@ -32,7 +32,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     network_mode: host
     devices:
-      - /dev/ttyACM0:/dev/ttyACM0
+      - /dev/serial/by-id/${ZSTICK_SERIAL_ID}:/dev/ttyACM0
     healthcheck:
       test: ["CMD", "curl", "-s", "http://127.0.0.1:8123"]
       interval: 1m30s
