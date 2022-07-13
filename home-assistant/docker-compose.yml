@@ -13,6 +13,12 @@ services:
       - /dev/ttyACM0:/dev/ttyACM0
     depends_on:
       - "zjs"
+    healthcheck:
+      test: ["CMD", "curl", "-s", "http://127.0.0.1:8123"]
+      interval: 2m30s
+      timeout: 30s
+      retries: 5
+      start_period: 1m30s
 
   zjs:
     container_name: zjs
