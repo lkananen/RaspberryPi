@@ -10,6 +10,9 @@ services:
       S2_AUTHENTICATED_KEY: ${S2_AUTHENTICATED_KEY}
       S2_UNAUTHENTICATED_KEY: ${S2_UNAUTHENTICATED_KEY}
       S0_LEGACY_KEY: ${S0_LEGACY_KEY}
+      LOGTOFILE: "true"
+      LOGLEVEL: "error"
+      LOGFILENAME: "/cache/logs/zwave_%DATE%.log"
     volumes:
       - ${HOME}/ha-cache:/cache
     devices:
