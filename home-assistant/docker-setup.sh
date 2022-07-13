@@ -8,6 +8,11 @@
 ###############################################################################
 # Pre-settings
 
+# Rename secret files and fill in secrets
+# NOTE!!! Manually entering required!
+cp .env-example .env
+cp ha/secret.example.yaml ha/secret.yaml
+
 # (optional)
 # Assign a .local domain to host on your network.
 # Enables you to access your Pi using a web address instead of IP.
