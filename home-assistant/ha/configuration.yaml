@@ -1,8 +1,5 @@
 # Home Assistant main configurations
 
-##############################################################################
-# General configurations
-
 # Initialization settings
 homeassistant:
   name: !secret home_name
@@ -14,12 +11,25 @@ homeassistant:
   time_zone: !secret time_zone
   internal_url: !secret internal_url
   #external_url: "https://www.example.com"
-  customize: !include customize.yaml
 
-  # Default configurations
-  # Do not remove!
-  default_config:
+# Default configurations
+# Do not remove!
+default_config:
 
-  # Text to speech
-  tts:
-    - platform: google_translate
+# Text to speech
+tts:
+  - platform: google_translate
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+sensor: !include sensors.yaml
+
+# Z-wave server reload
+rest_command:
+  reload_zwavejs:
+    url: !secret reload_zwave_url
+    method: POST
+    headers:
+      authorization: !secret reload_zwave_token
+      content-type: application/json
