@@ -1,4 +1,9 @@
-# Home assistant general configurations
+# Home Assistant main configurations
+
+##############################################################################
+# General configurations
+
+# Initialization settings
 homeassistant:
   name: !secret home_name
   latitude: !secret home_latitude
@@ -11,6 +16,9 @@ homeassistant:
   #external_url: "https://www.example.com"
 
 
+##############################################################################
+# Default configs
+
 # Loads default set of integrations. Do not remove.
 default_config:
 
@@ -22,6 +30,9 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
+
+##############################################################################
+# Customized parts
+
 # My sensors
 sensor: !include sensors.yaml
-
