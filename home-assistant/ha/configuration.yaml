@@ -16,14 +16,19 @@ homeassistant:
 # Do not remove!
 default_config:
 
-# Text to speech
-tts:
-  - platform: google_translate
-
+# Integrations
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 sensor: !include sensors.yaml
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+# IFTTT
+ifttt:
+  key: !secret ifttt_api_key
 
 # Z-wave server reload
 rest_command:
