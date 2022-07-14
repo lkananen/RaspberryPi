@@ -68,8 +68,6 @@ speedtestdotnet:
     - ping
 
 # TODO: http
-# TODO: MELCloud
-# TODO: GitHub
 # TODO: Radio Browser
 # TODO: media_player
 # TODO: telegram_bot
@@ -81,6 +79,11 @@ speedtestdotnet:
 # TODO: weather
 # TODO: python_script
 # TODO: influxdb - streaming data target
+
+# Manual integrations
+# - iRobot Roomba and Braava
+# - MELCloud
+# - GitHub
 
 ##############################################################################
 # Commands

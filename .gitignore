@@ -1,5 +1,7 @@
 # Secrets
-
 home-assistant/.env
 home-assistant/ha/secrets.yaml
 home-assistant/ha/configurations-backup.yaml
+
+# Backups
+*backup*

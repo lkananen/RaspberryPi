@@ -5,4 +5,7 @@
   command: "cat /sys/class/thermal/thermal_zone0/temp"
   value_template: '{{ value | multiply(0.001) | round(2) }}'
 
-
+# Steam
+- platform: steam_online
+  api_key: !secret steam_api_key
+  client_id: !secret steam_id
