@@ -1,1 +1,15 @@
 # Automation integration details
+
+# Steam online notification
+- alias: Steam Notification
+  description: ''
+  trigger:
+  - entity_id: sensor.steam_now_playing_picture
+    from: none
+    platform: state
+  condition: []
+  action:
+  - data_template:
+      message: !secret steam_id_game_link
+      title: Steam - Now Playing
+    service: persistent_notification.create
