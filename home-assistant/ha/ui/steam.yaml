@@ -1,39 +1,35 @@
-# TODO: not in use
+# Steam sensor dashboard cards
 
-# Source: https://gist.github.com/Thatkookooguy/abc9cf31060ac3672db510ef534b4fe5
 - name: Steam
+  theme: Backend-selected
+  icon: mdi:gamepad-variant-outline
+  badges:
+    - entity: !secret steam_id_sensor
+    - entity: automation.steam_notification
   cards:
-    # ID+img+online card
-    # https://www.home-assistant.io/lovelace/glance/
-    - entities:
+      # User status
+    - type: glance
+      entities:
         - entity: !secret steam_id_glance
-      type: glance
-      
-    # Now playing card with locally rendered image
-    # https://www.home-assistant.io/lovelace/conditional/
-    # https://www.home-assistant.io/lovelace/entity/
-    - card:
-        entity: sensor.steam_now_playing
-        icon: ' '
-        name: Now Playing
-        type: entity
-      conditions:
-        - entity: sensor.steam_now_playing_picture
-          state_not: none
-      type: conditional
-    
-    # Now playing card with Steam rendered image
-    # https://www.home-assistant.io/lovelace/conditional/
-    # https://www.home-assistant.io/lovelace/markdown/
-    - card:
-        type: markdown
-        content: >-
-          ![Now Playing]({{
-          states.sensor.steam_now_playing_picture.state }})
-      conditions:
-        - entity: sensor.steam_now_playing_picture
-          state_not: none
-      type: conditional
 
-  title: Steam
-  type: 'custom:vertical-stack-in-card'
+    # Now playing title with Steam game image below
+    - type: vertical-stack
+      cards:
+        - card:
+            entity: sensor.steam_now_playing
+            icon: ' '
+            name: Now Playing
+            type: entity
+          conditions:
+            - entity: sensor.steam_now_playing_picture
+              state_not: none
+          type: conditional
+        - card:
+            type: markdown
+            content: >-
+              ![Now Playing]({{ states.sensor.steam_now_playing_picture.state
+              }})
+          conditions:
+            - entity: sensor.steam_now_playing_picture
+              state_not: none
+          type: conditional
