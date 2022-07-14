@@ -26,9 +26,14 @@ sensor: !include sensors.yaml
 tts:
   - platform: google_translate
 
-# IFTTT
+# IFTTT integration
 ifttt:
   key: !secret ifttt_api_key
+
+# Spotify integration
+spotify:
+  client_id: !secret spotify_client_ID
+  client_secret: !secret spotify_client_secret
 
 # Z-wave server reload
 rest_command:
