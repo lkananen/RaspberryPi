@@ -1,6 +1,8 @@
 # Home Assistant main configurations
 
+##############################################################################
 # Initialization settings
+
 homeassistant:
   name: !secret home_name
   latitude: !secret home_latitude
@@ -11,6 +13,10 @@ homeassistant:
   time_zone: !secret time_zone
   internal_url: !secret internal_url
   #external_url: "https://www.example.com"
+  # TODO: auth_providers
+
+##############################################################################
+# Integrations
 
 # Default configurations
 # Do not remove!
@@ -25,6 +31,10 @@ sensor: !include sensors.yaml
 # Text to speech
 tts:
   - platform: google_translate
+    service_name: google_translate_say
+    cache: true
+    cache_dir: tts
+    time_memory: 300
 
 # IFTTT integration
 ifttt:
@@ -34,6 +44,15 @@ ifttt:
 spotify:
   client_id: !secret spotify_client_ID
   client_secret: !secret spotify_client_secret
+
+speedtestdotnet:
+  monitored_conditions:
+    - download
+    - upload
+    - ping
+
+##############################################################################
+# Commands
 
 # Z-wave server reload
 rest_command:
