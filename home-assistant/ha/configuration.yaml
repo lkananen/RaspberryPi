@@ -28,6 +28,21 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 sensor: !include sensors.yaml
 
+discovery:    # Discover some devices automatically
+config:       # Enables configuration UI
+sun:
+person:
+mobile_app:
+system_health:
+
+# Log Severities: notset, debug, info, warn, warning, error, fatal, critical
+logger:
+  default: error
+  logs:
+    homeassistant.core: critical
+    homeassistant.helpers.entity: critical
+    homeassistant.components.http.ban: warning
+
 # Text to speech
 tts:
   - platform: google_translate
