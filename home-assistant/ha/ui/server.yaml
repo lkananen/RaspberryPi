@@ -1,0 +1,77 @@
+title: Server
+
+cards:
+  - type: horizontal-stack
+    cards:
+      # Climate controls
+      - type: thermostat
+        entity: climate.living_room_air_cond
+
+      # Climate status stack
+      - type: vertical-stack
+        cards:
+          # Current climate temperature
+          - type: gauge
+            entity: sensor.living_room_air_cond_room_temperature
+            min: 10
+            max: 40
+            severity:
+              green: 18
+              yellow: 23
+              red: 26
+          
+          # Climate temperature histoy
+          - type: history-graph
+            entities:
+              - entity: sensor.living_room_air_cond_room_temperature
+            title: ' '
+            hours_to_show: 3
+
+  # Current temperature display
+  - type: vertical-stack
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.cpu_temperature
+          - entity: sensor.living_room_air_cond_room_temperature
+          - entity: sensor.fibaro_door_window_sensor_2_air_temperature
+          - entity: sensor.motion_sensor_air_temperature
+          - entity: sensor.smoke_detector_air_temperature
+          - entity: sensor.flood_sensor_air_temperature
+        state_color: false
+        title: Temperatures
+
+  # Temperature overview
+  - chart_type: line
+    period: hour
+    days_to_show: 1
+    type: statistics-graph
+    entities:
+      - sensor.living_room_air_cond_room_temperature
+      - sensor.smoke_detector_air_temperature
+      - sensor.motion_sensor_air_temperature
+      - sensor.flood_sensor_air_temperature
+      - sensor.fibaro_door_window_sensor_2_air_temperature
+    stat_types:
+      - mean
+    title: Temperatures around house
+
+  # Status stack
+  - type: vertical-stack
+    cards:
+      # Motion status
+      - type: entity
+        entity: binary_sensor.motion_sensor_home_security_motion_detection
+
+      # Door status
+      - type: entity
+        entity: >-
+          binary_sensor.fibaro_door_window_sensor_2_access_control_window_door_is_open
+  
+  # Power switch
+  - show_name: true
+    show_icon: true
+    type: button
+    tap_action:
+      action: toggle
+    entity: switch.metered_wall_plug_switch

@@ -1,0 +1,13 @@
+# Dashboard control file
+# https://www.home-assistant.io/dashboards/dashboards/
+
+# TODO
+# - rename to ui-lovelace.yaml to apply in the configurations
+# - move to parent dir
+
+title: Home
+views:
+  - !include ui/general.yaml
+  - !include ui/room_monitor.yaml
+  - !include ui/server.yaml
+  

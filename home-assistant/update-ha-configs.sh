@@ -53,6 +53,7 @@ echo $ha_dir
 echo
 echo "Copying..."
 sudo cp $ha_dev_dir/*.yaml $ha_dir/
+#sudo cp $ha_dev_dir/ui/*.yaml $ha_dir/ui/
 echo "Done copying!"
 
 echo

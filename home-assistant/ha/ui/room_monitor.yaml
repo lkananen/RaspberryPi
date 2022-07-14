@@ -1,0 +1,31 @@
+title: Room monitor
+
+cards:
+  - type: vertical-stack
+    cards:
+      # Colored current temperature gauge
+      - type: gauge
+        entity: sensor.smoke_detector_air_temperature
+        severity:
+          green: 24
+          yellow: 26
+          red: 30
+        min: 10
+        max: 40
+        name: Room temperature
+
+      # Short trend graph
+      - hours_to_show: 6
+        graph: line
+        type: sensor
+        entity: sensor.smoke_detector_air_temperature
+        detail: 2
+        name: 6 h temperature
+
+  # Long history graph
+  - type: history-graph
+    entities:
+      - entity: sun.sun
+      - entity: sensor.smoke_detector_air_temperature
+    title: Temperature history
+    hours_to_show: 24

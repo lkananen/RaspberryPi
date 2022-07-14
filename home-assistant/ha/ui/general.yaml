@@ -1,0 +1,83 @@
+  title: Home general view
+  #path: default_view
+  cards:
+    - type: entities
+      entities:
+      #   - sensor.<router_name>_b_received
+      #   - sensor.<router_name>_b_sent
+      #   - sensor.<router_name>_packets_received
+      #   - sensor.<router_name>_packets_sent
+      #   - sensor.<router_name>_external_ip
+      #   - sensor.<router_name>_kib_s_received
+      #   - sensor.<router_name>_kib_s_sent
+      #   - sensor.<router_name>_packets_s_received
+      #   - sensor.<router_name>_packets_s_sent
+        - entity: sensor.motion_sensor_air_temperature
+          name: Temp
+        - sensor.motion_sensor_illuminance
+      title: Entry
+    - type: entities
+      entities:
+        - entity: sensor.smoke_detector_air_temperature
+          name: Temp
+        - binary_sensor.smoke_detector_smoke_alarm_smoke_detected
+        - binary_sensor.smoke_detector_smoke_alarm_smoke_alarm_test
+        - binary_sensor.smoke_detector_heat_alarm_overheat_detected
+      title: Junior Bedroom
+    - type: grid
+      square: false
+      columns: 1
+      cards:
+        - type: entities
+          entities:
+            - entity: sensor.living_room_air_cond_energy
+              name: Air cond Energy
+            - entity: sensor.living_room_air_cond_room_temperature
+              name: Air cond Room Temperature
+            - !secret robot_vaccuum_bin_sensor
+            - !secret robot_vaccuum_name
+            - binary_sensor.motion_sensor_home_security_motion_detection
+          title: Living Room
+        - type: media-control
+          entity: !secret chromecast_media_player_name
+        - type: thermostat
+          entity: climate.living_room_air_cond
+        - type: media-control
+          entity: media_player.playstation_4
+    - type: entities
+      entities:
+        - entity: sensor.flood_sensor_air_temperature
+          name: Temp
+        - binary_sensor.flood_sensor_water_alarm_water_leak_detected
+      title: Master Bedroom
+    - type: entities
+      entities:
+        - !secret repo_commit_sensor
+        - !secret steam_id_sensor
+        - entity: sensor.fibaro_door_window_sensor_2_air_temperature
+          name: Temp
+        - >-
+          binary_sensor.fibaro_door_window_sensor_2_heat_alarm_overheat_detected
+        - >-
+          binary_sensor.fibaro_door_window_sensor_2_heat_alarm_underheat_detected
+        - >-
+          binary_sensor.fibaro_door_window_sensor_2_access_control_window_door_is_open
+        - sensor.metered_wall_plug_switch_power
+        - sensor.metered_wall_plug_switch_electric_consumption_kwh
+        - sensor.metered_wall_plug_switch_electric_consumption_w
+        - switch.metered_wall_plug_switch
+        - sensor.speedtest_ping
+        - sensor.speedtest_download
+        - sensor.speedtest_upload
+      title: Study
+    - type: entities
+      entities:
+        - !secret main_person
+    - type: entities
+      entities:
+        - sensor.cpu_temperature
+        - sensor.finland_coronavirus_confirmed
+        - sensor.finland_coronavirus_current
+        - sensor.finland_coronavirus_deaths
+        - sensor.finland_coronavirus_recovered
+      title: Sensor
