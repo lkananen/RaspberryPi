@@ -11,12 +11,15 @@
   accounts:
     - !secret steam_id
 
-# Current Steam game  
+# Current Steam status
 - platform: template
   sensors:
-    steam_game:
+    # Current Steam game
+    steam_now_playing:
       friendly_name: "Now Playing"
       value_template: !secret steam_id_game
+    
+    # Current Steam game's picture
     steam_now_playing_picture:
       friendly_name: "Now Playing Game Picture"
       value_template: !secret steam_id_game_img
