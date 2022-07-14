@@ -8,4 +8,12 @@
 # Steam
 - platform: steam_online
   api_key: !secret steam_api_key
-  client_id: !secret steam_id
+  accounts:
+    - !secret steam_id
+
+# Current Steam game  
+- platform: template
+  sensors:
+    steam_game:
+      friendly_name: "Game"
+      value_template: !secret steam_id_game
