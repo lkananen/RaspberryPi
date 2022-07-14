@@ -15,5 +15,8 @@
 - platform: template
   sensors:
     steam_game:
-      friendly_name: "Game"
+      friendly_name: "Now Playing"
       value_template: !secret steam_id_game
+    steam_now_playing_picture:
+      friendly_name: "Now Playing Game Picture"
+      value_template: !secret steam_id_game_img
