@@ -43,5 +43,5 @@ This folder contains a containerized home assistant setup to host on a Raspberry
 
 ### Screen reader
 In case the screen reader gets turned on automatically during startup, it can be disabled in the following way:   
-a) One time: Press caps lock + S
-b) Permanently: Modify file `/etc/xdg/autostart/orca-autostart.desktop` and comment out line `Exec=orca`.
+a) One time: Press caps lock + S   
+b) Permanently: Modify file `/etc/xdg/autostart/orca-autostart.desktop` and comment out line `Exec=orca`.   
