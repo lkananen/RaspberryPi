@@ -38,3 +38,10 @@ This folder contains a containerized home assistant setup to host on a Raspberry
   
 - Containers can be connected with:   
   `docker exec -it <CONTAINER_ID> /bin/bash`
+
+## Other
+
+### Screen reader
+In case the screen reader gets turned on automatically during startup, it can be disabled in the following way:   
+a) One time: Press caps lock + S
+b) Permanently: Modify file `/etc/xdg/autostart/orca-autostart.desktop` and comment out line `Exec=orca`.
