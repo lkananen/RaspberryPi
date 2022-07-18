@@ -2,7 +2,7 @@
 
 # Steam online notification
 - alias: Steam Notification
-  description: ''
+  description: 'Steam online notification'
   trigger:
   - entity_id: sensor.steam_now_playing_picture
     from: none
@@ -13,3 +13,34 @@
       message: !secret steam_id_game_link
       title: Steam - Now Playing
     service: persistent_notification.create
+
+# Door controls power when home
+- alias: Power Control
+  description: 'Door controls power when home'
+  mode: single
+  # Door closed
+  trigger:
+    - type: not_opened
+      platform: device
+      device_id: !secret door_sensor_id
+      entity_id: >-
+        !secret door_sensor_closed
+      domain: binary_sensor
+      # Delay, how long the sensor needs to be active
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 1
+  # Phone home
+  condition:
+    - condition: device
+      device_id: !secret my_phone_id
+      domain: device_tracker
+      entity_id: !secret my_phone_tracker
+      type: is_home
+  # Turns switch on
+  action:
+    - type: turn_on
+      device_id: !secret power_control_id
+      entity_id: !secret power_control_switch
+      domain: switch
