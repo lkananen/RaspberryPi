@@ -23,8 +23,7 @@
     - type: not_opened            # Door state
       platform: device
       device_id: !secret door_sensor_id
-      entity_id: >-
-        !secret door_sensor_open
+      entity_id: !secret door_sensor_open
       domain: binary_sensor
       # Delay, how long the sensor needs to be active
       for:
