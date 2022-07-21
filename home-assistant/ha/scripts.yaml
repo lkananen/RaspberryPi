@@ -1,1 +1,37 @@
 # Script integration details
+
+# Cool for 1 hour with AC
+ac_cool:
+  alias: "Cool down living room"
+  icon: "mdi:air-conditioner"
+  description: "Turns on the AC cooling hvac mode for one hour."
+  mode: "single"
+  sequence:
+    - device_id: !secret air_conditioner_id
+      domain: climate
+      entity_id: !secret air_conditioner
+      type: set_hvac_mode
+      hvac_mode: cool
+    - delay:
+        hours: 1
+        minutes: 0
+        seconds: 0
+        milliseconds: 0
+    - device_id: !secret air_conditioner_id
+      domain: climate
+      entity_id: !secret air_conditioner
+      type: set_hvac_mode
+      hvac_mode: "off"
+
+# Turn off AC
+ac_off:
+  alias: "Turn off air cond"
+  icon: "mdi:air-humidifier-off"
+  description: "Turns off the AC hvac mode in use."
+  mode: "single"
+  sequence:
+    - device_id: !secret air_conditioner_id
+      domain: climate
+      entity_id: !secret air_conditioner
+      type: set_hvac_mode
+      hvac_mode: "off"
