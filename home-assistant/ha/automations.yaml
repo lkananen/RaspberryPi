@@ -58,8 +58,8 @@
       # Delay, how long the sensor needs to be active
       for:
         hours: 0
-        minutes: 0
-        seconds: 5
+        minutes: 1
+        seconds: 0
   # Phone home
   condition:
   - condition: or
@@ -79,10 +79,10 @@
   - device_id: !secret my_phone_id
     domain: mobile_app
     type: notify
-    message: Door open!
-    title: Alert!
+    message: "Door open!"
+    title: "Home alert system"
   - device_id: !secret another_phone_id
     domain: mobile_app
     type: notify
-    message: Door open!
-    title: Alert!
+    message: "ERROR: Door open! Close the door!"
+    title: "Home assistant critical alert"
