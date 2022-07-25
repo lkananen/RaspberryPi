@@ -37,11 +37,11 @@ system_health:
 
 # Log Severities: notset, debug, info, warn, warning, error, fatal, critical
 logger:
-  default: error
+  default: debug
   logs:
     homeassistant.core: critical
     homeassistant.helpers.entity: critical
-    homeassistant.components.http.ban: warning
+    #homeassistant.components.http.ban: warning
     #homeassistant.components.smartthings: debug
 
 # Text to speech
