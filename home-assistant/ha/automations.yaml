@@ -43,3 +43,46 @@
       device_id: !secret power_control_id
       entity_id: !secret power_control_switch
       domain: switch
+
+# Door open alert
+- alias: Door open alert
+  description: 'Door controls power when home'
+  mode: single
+  # Door closed
+  trigger:
+    - type: opened            # Door state
+      platform: device
+      device_id: !secret door_sensor_id
+      entity_id: !secret door_sensor_open_entity_id
+      domain: binary_sensor
+      # Delay, how long the sensor needs to be active
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 5
+  # Phone home
+  condition:
+  - condition: or
+    conditions:
+      - condition: device
+        device_id: !secret my_phone_id
+        domain: device_tracker
+        entity_id: !secret my_phone_tracker
+        type: is_home
+      - condition: device
+        device_id: !secret another_phone_id
+        domain: device_tracker
+        entity_id: !secret another_phone_tracker
+        type: is_home
+  # Turns switch on
+  action:
+  - device_id: !secret my_phone_id
+    domain: mobile_app
+    type: notify
+    message: Door open!
+    title: Alert!
+  - device_id: !secret another_phone_id
+    domain: mobile_app
+    type: notify
+    message: Door open!
+    title: Alert!
