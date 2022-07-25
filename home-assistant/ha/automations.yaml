@@ -14,16 +14,16 @@
       title: Steam - Now Playing
     service: persistent_notification.create
 
-# Door controls power when home
+# Motion controls power when home
 - alias: Power Control
-  description: 'Door controls power when home'
+  description: 'Motion controls power when home'
   mode: single
   # Door closed
   trigger:
-    - type: not_opened            # Door state
+    - type: motion
       platform: device
-      device_id: !secret door_sensor_id
-      entity_id: !secret door_sensor_open
+      device_id: !secret motion_sensor_id
+      entity_id: !secret motion_sensor_motion_entity_id
       domain: binary_sensor
       # Delay, how long the sensor needs to be active
       for:
