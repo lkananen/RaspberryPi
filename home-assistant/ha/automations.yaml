@@ -79,7 +79,7 @@
   - device_id: !secret my_phone_id
     domain: mobile_app
     type: notify
-    message: "Door open!"
+    message: !secret door_sensor_open_state_msg
     title: "Home alert system"
   - device_id: !secret another_phone_id
     domain: mobile_app
