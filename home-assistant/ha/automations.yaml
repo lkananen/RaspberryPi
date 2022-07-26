@@ -86,3 +86,6 @@
     type: notify
     message: "ERROR: Door open! Close the door!"
     title: "Home assistant critical alert"
+    data:
+      image: https://source.unsplash.com/random/300x200/?food
+
