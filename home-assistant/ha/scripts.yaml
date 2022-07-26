@@ -35,3 +35,21 @@ ac_off:
       entity_id: !secret air_conditioner
       type: set_hvac_mode
       hvac_mode: "off"
+
+# Test notification
+# testing:
+#   alias: "Test script"
+#   sequence:
+#     - device_id: !secret my_phone_id
+#       domain: mobile_app
+#       type: notify
+#       message: >
+#         Door is
+#         {%- if states.binary_sensor.xxxxx_door_window_sensor_access_control_door_is_open.state == "on" -%}
+#           {{ ' ' + 'open' }}
+#         {%- elif states.binary_sensor.xxxxx_door_window_sensor_access_control_door_is_open.state == "off" -%}
+#           {{ ' ' + 'closed' }}
+#         {%- else -%}
+#           {{ ' ' + 'at unknown state of ' + states.binary_sensor.xxxxx_door_window_sensor_access_control_door_is_open.state }}
+#         {% endif %}
+#   mode: single
