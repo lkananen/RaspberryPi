@@ -57,6 +57,9 @@ ifttt:
   key: !secret ifttt_api_key
 
 # Spotify integration
+# TODO: depricated
+# Spotify integration now uses automatically imported YAML-free OAuth2 Application Credentials
+# TODO: update this
 spotify:
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_client_secret
