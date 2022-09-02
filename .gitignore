@@ -5,3 +5,6 @@ home-assistant/ha/configurations-backup.yaml
 
 # Backups
 */*backups*/*
+
+# Google Docs generated files
+*desktop.ini
