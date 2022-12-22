@@ -23,20 +23,7 @@ ac_cool:
       type: set_hvac_mode
       hvac_mode: "off"
 
-# Turn off AC
-ac_off:
-  alias: "Turn off air cond"
-  icon: "mdi:air-humidifier-off"
-  description: "Turns off the AC hvac mode in use."
-  mode: "single"
-  sequence:
-    - device_id: !secret air_conditioner_id
-      domain: climate
-      entity_id: !secret air_conditioner
-      type: set_hvac_mode
-      hvac_mode: "off"
-
-# Heating on AC
+# Heating on AC for 4 hours
 ac_heat:
   alias: "Heat up living room"
   icon: "mdi:radiator"
@@ -53,6 +40,19 @@ ac_heat:
         minutes: 0
         seconds: 0
         milliseconds: 0
+    - device_id: !secret air_conditioner_id
+      domain: climate
+      entity_id: !secret air_conditioner
+      type: set_hvac_mode
+      hvac_mode: "off"
+
+# Turn off AC
+ac_off:
+  alias: "Turn off air cond"
+  icon: "mdi:air-humidifier-off"
+  description: "Turns off the AC hvac mode in use."
+  mode: "single"
+  sequence:
     - device_id: !secret air_conditioner_id
       domain: climate
       entity_id: !secret air_conditioner
