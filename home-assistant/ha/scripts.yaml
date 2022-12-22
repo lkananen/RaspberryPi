@@ -1,6 +1,6 @@
 # Script integration details
 
-# Cool for 1 hour with AC
+# Cool for X hours with AC
 ac_cool:
   alias: "Cool down living room"
   icon: "mdi:air-conditioner"
@@ -23,7 +23,7 @@ ac_cool:
       type: set_hvac_mode
       hvac_mode: "off"
 
-# Heating on AC for 4 hours
+# Heat for X hours with AC
 ac_heat:
   alias: "Heat up living room"
   icon: "mdi:radiator"
@@ -58,6 +58,27 @@ ac_off:
       entity_id: !secret air_conditioner
       type: set_hvac_mode
       hvac_mode: "off"
+
+# Timed power switch on for X hours
+humidifier_timed_on:
+  alias: "Turn on the humidifier"
+  icon: "mdi:air-humidifier"
+  description: "Turn on the humidifier electric outlet for a while."
+  mode: "single"
+  sequence:
+    - type: turn_on
+      device_id: !secret power_control_2_id
+      entity_id: !secret power_control_2_switch
+      domain: switch
+    - delay:
+        hours: 4
+        minutes: 0
+        seconds: 0
+        milliseconds: 0
+    - type: turn_off
+      device_id: !secret power_control_2_id
+      entity_id: !secret power_control_2_switch
+      domain: switch
 
 
 
