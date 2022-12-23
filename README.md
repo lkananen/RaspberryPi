@@ -58,3 +58,7 @@ Project structure separates the server setup to individually encapsulated compon
 ├── LICENCE
 └── README.md
 ```
+
+# Licence
+
+See the separate [LICENCE](./LICENCE) file.
