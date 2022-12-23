@@ -5,7 +5,16 @@
   command: "cat /sys/class/thermal/thermal_zone0/temp"
   value_template: '{{ value | multiply(0.001) | round(2) }}'
 
-# Steam
+# System Monitor on host device
+- platform: systemmonitor
+  resources:
+    - type: memory_use_percent
+    - type: memory_use
+    - type: memory_free
+    - type: load_5m
+    - type: load_15m
+
+# Steam users
 - platform: steam_online
   api_key: !secret steam_api_key
   accounts:
