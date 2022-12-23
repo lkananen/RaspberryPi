@@ -20,12 +20,18 @@ Collection of my smart home control center setup & server hosting.
 # Table of Contents
 - [Smart home hub](#smart-home-hub)
 - [Badges](#badges)
-- [Table of Contents](#table-of-contents)
+- [Table of Contents](#table-of-contents))
+- [Project description](#project-description)
 - [Technical documents](#technical-documents)
   - [Project content](#project-content)
 - [Dependencies](#dependencies)
 
 ----------
+
+# Project description
+
+This project consists of my Home Assistant smart home setup (powered by the Jinja2 templating engine), sensor device configurations and Raspberry Pi hosting server initialization scripts.
+
 
 # Technical documents
 ## Project content
