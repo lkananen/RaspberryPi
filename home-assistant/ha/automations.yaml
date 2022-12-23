@@ -1,7 +1,8 @@
 # Automation integration details
 
 ##############################################################################
-# Computer
+# Computer #
+############
 
 # Steam online notification
 - alias: Steam Notification
@@ -18,7 +19,8 @@
     service: persistent_notification.create
 
 ##############################################################################
-# Study
+# Study #
+#########
 
 # Motion controls power when home
 # Idea: Motion & device home -> power on
@@ -53,47 +55,48 @@
 
 # Motion controls power off
 # Idea: No motion || device leaves home -> power off
-alias: Power off control
-description: 'Motion controls power off'
-mode: single
-trigger:
-  # Power has been on for some time
-  - platform: device
-    type: turned_on
-    device_id: !secret power_control_id
-    entity_id: !secret power_control_switch
-    domain: switch
-    for:
-      hours: 1
-      minutes: 0
-      seconds: 0
-  # Phone leaves home
-  - platform: device
-    device_id: !secret my_phone_id
-    domain: device_tracker
-    entity_id: !secret my_phone_tracker
-    type: leaves
-    zone: zone.home
-condition:
-  # No motion verification
-  - type: is_no_motion
-    condition: device
-    device_id: !secret motion_sensor_id
-    entity_id: !secret motion_sensor_motion_entity_id
-    domain: binary_sensor
-    for:
-      hours: 1
-      minutes: 0
-      seconds: 0
-action:
-  # Power off from no motion
-  - type: turn_off
-    device_id: !secret power_control_id
-    entity_id: !secret power_control_switch
-    domain: switch
+- alias: Power off control
+  description: 'Motion controls power off'
+  mode: single
+  trigger:
+    # Power has been on for some time
+    - platform: device
+      type: turned_on
+      device_id: !secret power_control_id
+      entity_id: !secret power_control_switch
+      domain: switch
+      for:
+        hours: 1
+        minutes: 0
+        seconds: 0
+    # Phone leaves home
+    - platform: device
+      device_id: !secret my_phone_id
+      domain: device_tracker
+      entity_id: !secret my_phone_tracker
+      type: leaves
+      zone: zone.home
+  condition:
+    # No motion verification
+    - type: is_no_motion
+      condition: device
+      device_id: !secret motion_sensor_id
+      entity_id: !secret motion_sensor_motion_entity_id
+      domain: binary_sensor
+      for:
+        hours: 1
+        minutes: 0
+        seconds: 0
+  action:
+    # Power off from no motion
+    - type: turn_off
+      device_id: !secret power_control_id
+      entity_id: !secret power_control_switch
+      domain: switch
 
 ##############################################################################
-# Kitchen
+# Kitchen #
+###########
 
 # Door open alert
 # Idea: Door open & some device home -> alert notification
