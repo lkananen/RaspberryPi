@@ -1,7 +1,9 @@
-# RaspberryPi
-Scripts and stuff for customizing my Raspberry Pi.
+# Smart home hub
+Collection of my smart home control center setup & server hosting.
 
 ----------
+
+## Badges
 
   [![Release](https://img.shields.io/github/release-date/lkananen/RaspberryPi)](https://github.com/lkananen/RaspberryPi)
   [![Latest commit](https://img.shields.io/github/last-commit/lkananen/RaspberryPi)](https://github.com/lkananen/RaspberryPi/commits/master)
@@ -15,3 +17,7 @@ Scripts and stuff for customizing my Raspberry Pi.
 
 ----------
 
+# Table of Contents
+- [Smart home hub](#smart-home-hub)
+- [Badges](#badges)
+- [Table of Contents](#table-of-contents)
