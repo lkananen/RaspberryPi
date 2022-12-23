@@ -21,3 +21,40 @@ Collection of my smart home control center setup & server hosting.
 - [Smart home hub](#smart-home-hub)
 - [Badges](#badges)
 - [Table of Contents](#table-of-contents)
+- [Technical documents](#technical-documents)
+  - [Project content](#project-content)
+
+----------
+
+# Technical documents
+## Project content
+
+Project structure separates the server setup to individually encapsulated components.
+
+```
+./
+├── home-assistant/                                      # Home assistant main setup
+|    |
+|    ├── ha/                                             # HA control scripts
+|    |    |
+|    |    ├── ui/                                        # HA dashboards
+|    |    |    └── ...
+|    |    |
+|    |    └── *.yaml                                     # HA definitions
+|    |
+|    ├── docker-compose.yml                              # Containerized HA
+|    ├── docker-setup.sh                                 # First time Docker setup script.
+|    ├── home-assistant-docker-compose-setup.sh          # (depricated) Dockerized setup startup script.
+|    ├── home-assistant-docker-setup.sh                  # (depricated) Individual HA Docker container startup script.
+|    └── update-ha-configs.sh                            # Full deployment. Dockerized setup startup & backup script.
+|
+├── init/                                                # Raspbian customization & initial setup
+|    └── ...
+|
+├── speedtest/                                           # Network speed testing
+|    └── ...
+|
+├── .gitignore
+├── LICENCE
+└── README.md
+```
