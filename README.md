@@ -23,6 +23,7 @@ Collection of my smart home control center setup & server hosting.
 - [Table of Contents](#table-of-contents)
 - [Technical documents](#technical-documents)
   - [Project content](#project-content)
+- [Dependencies](#dependencies)
 
 ----------
 
