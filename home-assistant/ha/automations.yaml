@@ -74,7 +74,7 @@
         domain: device_tracker
         entity_id: !secret another_phone_tracker
         type: is_home
-  # Turns switch on
+  # Notify the phone
   action:
   - device_id: !secret my_phone_id
     domain: mobile_app
