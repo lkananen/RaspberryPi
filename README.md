@@ -59,6 +59,15 @@ Project structure separates the server setup to individually encapsulated compon
 └── README.md
 ```
 
+# Dependencies
+List of dependencies:
+- [Grafana official dashboard container](https://hub.docker.com/r/grafana/grafana)
+- [Home Assistant official smart home container: homeassistant/home-assistant](https://hub.docker.com/r/homeassistant/home-assistant)
+- [InfluxDB official timeseries database container](https://hub.docker.com/_/influxdb)
+- [Material Design icons](https://materialdesignicons.com/tag/community)
+- [Speedtest network measurement container](https://hub.docker.com/r/robinmanuelthiel/speedtest)
+- [Z-wave JavaScript server container](https://hub.docker.com/r/kpine/zwave-js-server)
+
 # Licence
 
 See the separate [LICENCE](./LICENCE) file.
