@@ -80,6 +80,18 @@ humidifier_timed_on:
       entity_id: !secret power_control_2_switch
       domain: switch
 
+# Timed power switch on for X hours
+humidifier_off:
+  alias: "Turn off the humidifier"
+  icon: "mdi:air-humidifier-off"
+  description: "Turn off the humidifier electric outlet."
+  mode: "single"
+  sequence:
+    - type: turn_off
+      device_id: !secret power_control_2_id
+      entity_id: !secret power_control_2_switch
+      domain: switch
+
 
 
 # Test notification
