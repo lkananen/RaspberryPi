@@ -85,7 +85,7 @@
       domain: binary_sensor
       for:
         hours: 0
-        minutes: 2
+        minutes: 5
         seconds: 0
   action:
     # Power off from no motion
