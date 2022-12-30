@@ -1,5 +1,9 @@
 # Script integration details
 
+##############################################################################
+# AC #
+######
+
 # Cool for X hours with AC
 ac_cool:
   alias: "Cool down living room"
@@ -59,6 +63,10 @@ ac_off:
       type: set_hvac_mode
       hvac_mode: "off"
 
+##############################################################################
+# Humidifier #
+##############
+
 # Timed power switch on for X hours
 humidifier_timed_on:
   alias: "Turn on the humidifier"
@@ -92,7 +100,7 @@ humidifier_off:
       entity_id: !secret power_control_2_switch
       domain: switch
 
-
+##############################################################################
 
 # Test notification
 # testing:
