@@ -142,7 +142,7 @@
     message: "ERROR: Door open! Close the door!"
     title: "Home assistant critical alert"
     data:
-      image: https://source.unsplash.com/random/300x200/?food
+      image: "https://source.unsplash.com/random/300x200/?food"
 
 ##############################################################################
 # Hallway #
@@ -169,6 +169,21 @@
       device_id: !secret power_control_2_id
       entity_id: !secret power_control_2_switch
       domain: switch
+    - device_id: !secret my_phone_id
+      domain: mobile_app
+      type: notify
+      message: "Humidifier leak detected!"
+      title: "Water leak alert"
+      data:
+        image: "https://source.unsplash.com/random/thumb/?droplet"
+    - device_id: !secret another_phone_id
+      domain: mobile_app
+      type: notify
+      message: "Humidifier leak detected!"
+      title: "Water leak alert"
+      data:
+        image: "https://source.unsplash.com/random/thumb/?droplet"
+
 
 
 ##############################################################################
