@@ -20,7 +20,7 @@ Collection of my smart home control center setup & server hosting.
 # Table of Contents
 - [Smart home hub](#smart-home-hub)
 - [Badges](#badges)
-- [Table of Contents](#table-of-contents))
+- [Table of Contents](#table-of-contents)
 - [Project description](#project-description)
 - [Technical documents](#technical-documents)
   - [Project content](#project-content)
