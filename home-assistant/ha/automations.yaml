@@ -66,8 +66,8 @@
       entity_id: !secret power_control_switch
       domain: switch
       for:
-        hours: 1
-        minutes: 0
+        hours: 0
+        minutes: 10
         seconds: 0
     # Phone leaves home
     - platform: device
@@ -84,7 +84,7 @@
       entity_id: !secret motion_sensor_motion_entity_id
       domain: binary_sensor
       for:
-        hours: 1
+        hours: 5
         minutes: 0
         seconds: 0
   action:
