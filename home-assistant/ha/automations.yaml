@@ -145,3 +145,30 @@
       image: https://source.unsplash.com/random/300x200/?food
 
 ##############################################################################
+# Hallway #
+###########
+
+# Water leak power control
+# Idea: Leak detection turns off power
+- alias: Leak power control
+  description: 'Water leak control a power outlet'
+  mode: single
+  trigger:
+    - type: moist
+      platform: device
+      device_id: !secret flood_sensor_2
+      entity_id: !secret flood_sensor_2_detection
+      domain: binary_sensor
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 1
+  condition: []
+  action:
+    - type: turn_off
+      device_id: !secret power_control_2_id
+      entity_id: !secret power_control_2_switch
+      domain: switch
+
+
+##############################################################################
