@@ -54,21 +54,14 @@
       domain: switch
 
 # Motion controls power off
-# Idea: No motion || device leaves home -> power off
+# Idea: Trigger: Timed || device leaves home -> no motion && consumes power -> power off
 - alias: Power off control
   description: 'Motion controls power off'
   mode: single
   trigger:
-    # Power has been on for some time
-    - platform: device
-      type: turned_on
-      device_id: !secret power_control_id
-      entity_id: !secret power_control_switch
-      domain: switch
-      for:
-        hours: 0
-        minutes: 10
-        seconds: 0
+    # Triggers every X minutes
+    - platform: time_pattern
+      minutes: "/15"
     # Phone leaves home
     - platform: device
       device_id: !secret my_phone_id
@@ -77,6 +70,13 @@
       type: leaves
       zone: zone.home
   condition:
+    # Power consumption is above X Watts
+    - type: is_power
+      condition: device
+      device_id: !secret power_control_id
+      entity_id: !secret power_control_sensor
+      domain: sensor
+      above: 5
     # No motion verification
     - type: is_no_motion
       condition: device
@@ -84,8 +84,8 @@
       entity_id: !secret motion_sensor_motion_entity_id
       domain: binary_sensor
       for:
-        hours: 5
-        minutes: 0
+        hours: 0
+        minutes: 2
         seconds: 0
   action:
     # Power off from no motion
