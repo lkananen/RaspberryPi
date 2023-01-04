@@ -61,7 +61,7 @@
   trigger:
     # Triggers every X minutes
     - platform: time_pattern
-      minutes: "/15"
+      minutes: "/30"
     # Phone leaves home
     - platform: device
       device_id: !secret my_phone_id
@@ -85,7 +85,7 @@
       domain: binary_sensor
       for:
         hours: 0
-        minutes: 15
+        minutes: 30
         seconds: 0
   action:
     # Power off from no motion
