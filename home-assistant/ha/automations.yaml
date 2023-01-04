@@ -26,7 +26,7 @@
 # Idea: Motion & device home -> power on
 - alias: Power on control
   description: 'Motion controls power on when home'
-  mode: single
+  mode: restart
   # Door closed
   trigger:
     - type: motion
@@ -57,7 +57,7 @@
 # Idea: Trigger: Timed || device leaves home -> no motion && consumes power -> power off
 - alias: Power off control
   description: 'Motion controls power off'
-  mode: single
+  mode: restart
   trigger:
     # Triggers every X minutes
     - platform: time_pattern
