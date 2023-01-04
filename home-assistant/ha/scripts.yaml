@@ -72,7 +72,7 @@ humidifier_timed_on:
   alias: "Turn on the humidifier"
   icon: "mdi:air-humidifier"
   description: "Turn on the humidifier electric outlet for a while."
-  mode: "single"
+  mode: "restart"
   sequence:
     - type: turn_on
       device_id: !secret power_control_2_id
@@ -93,7 +93,7 @@ humidifier_off:
   alias: "Turn off the humidifier"
   icon: "mdi:air-humidifier-off"
   description: "Turn off the humidifier electric outlet."
-  mode: "single"
+  mode: "restart"
   sequence:
     - type: turn_off
       device_id: !secret power_control_2_id
