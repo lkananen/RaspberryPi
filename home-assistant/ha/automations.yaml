@@ -31,8 +31,8 @@
   trigger:
     - type: motion
       platform: device
-      device_id: !secret motion_sensor_id
-      entity_id: !secret motion_sensor_motion_entity_id
+      device_id: !secret motion_sensor_1_id
+      entity_id: !secret motion_sensor_1_motion_entity_id
       domain: binary_sensor
       # Delay, how long the sensor needs to be active
       for:
@@ -49,8 +49,8 @@
   # Turns switch on
   action:
     - type: turn_on
-      device_id: !secret power_control_id
-      entity_id: !secret power_control_switch
+      device_id: !secret power_control_1_id
+      entity_id: !secret power_control_1_switch
       domain: switch
 
 # Motion controls power off
@@ -73,15 +73,15 @@
     # Power consumption is above X Watts
     - type: is_power
       condition: device
-      device_id: !secret power_control_id
-      entity_id: !secret power_control_sensor
+      device_id: !secret power_control_1_id
+      entity_id: !secret power_control_1_sensor
       domain: sensor
       above: 5
     # No motion verification
     - type: is_no_motion
       condition: device
-      device_id: !secret motion_sensor_id
-      entity_id: !secret motion_sensor_motion_entity_id
+      device_id: !secret motion_sensor_1_id
+      entity_id: !secret motion_sensor_1_motion_entity_id
       domain: binary_sensor
       for:
         hours: 0
@@ -90,8 +90,8 @@
   action:
     # Power off from no motion
     - type: turn_off
-      device_id: !secret power_control_id
-      entity_id: !secret power_control_switch
+      device_id: !secret power_control_1_id
+      entity_id: !secret power_control_1_switch
       domain: switch
 
 ##############################################################################
@@ -107,8 +107,8 @@
   trigger:
     - type: opened            # Door state
       platform: device
-      device_id: !secret door_sensor_id
-      entity_id: !secret door_sensor_open_entity_id
+      device_id: !secret door_sensor_1_id
+      entity_id: !secret door_sensor_1_open_entity_id
       domain: binary_sensor
       # Delay, how long the sensor needs to be active
       for:
@@ -134,7 +134,7 @@
   - device_id: !secret my_phone_id
     domain: mobile_app
     type: notify
-    message: !secret door_sensor_open_state_msg
+    message: !secret door_sensor_1_open_state_msg
     title: "Home alert system"
   - device_id: !secret another_phone_id
     domain: mobile_app
