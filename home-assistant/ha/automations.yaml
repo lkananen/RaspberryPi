@@ -22,10 +22,10 @@
 # Study #
 #########
 
-# Motion controls power when home
+# Motion controls peripheral power when home
 # Idea: Motion & device home -> power on
-- alias: Power on control
-  description: 'Motion controls power on when home'
+- alias: Power on devices control
+  description: 'Motion controls peripheral device power on when home'
   mode: restart
   # Door closed
   trigger:
@@ -53,7 +53,7 @@
       entity_id: !secret power_control_1_switch
       domain: switch
 
-# Motion controls power off
+# Motion controls peripheral power off
 # Idea: Trigger: Timed || device leaves home -> no motion && consumes power -> power off
 - alias: Power off control
   description: 'Motion controls power off'
@@ -143,6 +143,42 @@
     title: "Home assistant critical alert"
     data:
       image: "https://source.unsplash.com/random/300x200/?food"
+
+# Motion controls coffee maker power when home
+# Idea: Motion & devices home -> power on
+- alias: Power on coffee control
+  description: 'Motion controls coffee maker power on when home'
+  mode: single
+  # Door closed
+  trigger:
+    - type: motion
+      platform: device
+      device_id: !secret motion_sensor_3_id
+      entity_id: !secret motion_sensor_3_motion_entity_id
+      domain: binary_sensor
+      # Delay, how long the sensor needs to be active
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 1
+  # Phones home
+  condition:
+    - condition: device
+      device_id: !secret my_phone_id
+      domain: device_tracker
+      entity_id: !secret my_phone_tracker
+      type: is_home
+    - condition: device
+      device_id: !secret another_phone_id
+      domain: device_tracker
+      entity_id: !secret another_phone_tracker
+      type: is_home
+  # Turns switch on
+  action:
+    - type: turn_on
+      device_id: !secret power_control_3_id
+      entity_id: !secret power_control_3_switch
+      domain: switch
 
 ##############################################################################
 # Hallway #
