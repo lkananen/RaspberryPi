@@ -145,7 +145,7 @@
       image: "https://source.unsplash.com/random/300x200/?food"
 
 # Motion controls coffee maker power when home
-# Idea: Motion & devices home -> power on
+# Idea: Motion & devices home -> power on -> wait X -> notify
 - alias: Power on coffee control
   description: 'Motion controls coffee maker power on when home'
   mode: single
@@ -173,12 +173,31 @@
       domain: device_tracker
       entity_id: !secret another_phone_tracker
       type: is_home
-  # Turns switch on
+  # Turns switch on, waits and notifies
   action:
     - type: turn_on
       device_id: !secret power_control_3_id
       entity_id: !secret power_control_3_switch
       domain: switch
+    - delay:
+        hours: 0
+        minutes: 5
+        seconds: 0
+        milliseconds: 0
+    - device_id: !secret my_phone_id
+      domain: mobile_app
+      type: notify
+      message: "Coffee ready!"
+      title: "Message from the coffee maker"
+      data:
+        image: "https://source.unsplash.com/random/thumb/?cappuccino"
+    - device_id: !secret another_phone_id
+      domain: mobile_app
+      type: notify
+      message: "Coffee ready"
+      title: "Message from the coffee maker"
+      data:
+        image: "https://source.unsplash.com/random/thumb/?cappuccino"
 
 ##############################################################################
 # Hallway #
